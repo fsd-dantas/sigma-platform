@@ -1,0 +1,151 @@
+# =============================================================================
+# SIGMA — CODEOWNERS
+# Sistema Integrado de Governança e Monitoramento Administrativo
+# =============================================================================
+#
+# Este arquivo define os proprietários de código que serão automaticamente
+# solicitados para revisão quando um Pull Request modificar arquivos
+# correspondentes aos padrões definidos.
+#
+# Documentação: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# FORMATO:
+#   <padrão>  @usuario1 @usuario2 @team/nome-do-time
+#
+# REGRAS:
+#   - A última regra correspondente tem precedência
+#   - Pelo menos 1 CODEOWNER deve aprovar antes do merge (se branch protection ativado)
+#   - Use @org/team-name para times do GitHub
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# PROPRIETÁRIOS GLOBAIS (fallback para arquivos não cobertos)
+# -----------------------------------------------------------------------------
+# Software Architect é owner padrão de todo o repositório
+*                                   @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# ARQUITETURA E DOCUMENTAÇÃO TÉCNICA
+# Software Architect
+# -----------------------------------------------------------------------------
+/docs/architecture/                 @fsd-dantas
+/docs/architecture/adrs/            @fsd-dantas
+/docs/architecture/c4/              @fsd-dantas
+/docs/architecture/diagrams/        @fsd-dantas
+/docs/api/                          @fsd-dantas
+*.md                                @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# BACKEND — Camadas Clean Architecture
+# Full Stack Engineer (Backend & Integration)
+# -----------------------------------------------------------------------------
+/src/backend/                       @fullstack-engineer
+/src/backend/1-Host/                @fullstack-engineer
+/src/backend/2-Application/         @fullstack-engineer
+/src/backend/3-Domain/              @fullstack-engineer @fsd-dantas
+/src/backend/4-Infrastructure/      @fullstack-engineer
+/src/backend/5-CrossCutting/        @fullstack-engineer
+
+# Domain Layer requer revisão do Arquiteto (regras de negócio críticas)
+/src/backend/3-Domain/              @fsd-dantas @fullstack-engineer
+
+# Integrações externas (SIAFIC, eProtocolo, GMS)
+/src/backend/4-Infrastructure/Sigma.Infrastructure.Integrations/    @fullstack-engineer @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# FRONTEND — Portais React
+# Front End Engineer + DUX/DUI
+# -----------------------------------------------------------------------------
+/src/frontend/                      @frontend-engineer @dux-dui-designer
+/src/frontend/portal-admin/         @frontend-engineer @dux-dui-designer
+/src/frontend/portal-bi/            @frontend-engineer @dux-dui-designer @data-engineer
+/src/frontend/portal-usuario/       @frontend-engineer @dux-dui-designer
+
+# Componentes de UI requerem revisão de Design
+/src/frontend/*/src/components/     @dux-dui-designer @frontend-engineer
+/src/frontend/*/src/assets/         @dux-dui-designer
+
+# -----------------------------------------------------------------------------
+# DATA ENGINEERING — BI, Analytics, Migrations
+# Data Engineer
+# -----------------------------------------------------------------------------
+/src/backend/4-Infrastructure/Sigma.Infrastructure.Persistence/Migrations/  @data-engineer @fullstack-engineer
+/src/frontend/portal-bi/            @data-engineer @frontend-engineer
+
+# -----------------------------------------------------------------------------
+# DESIGN — Assets, Tokens, Figma Exports
+# DUX/DUI Designer
+# -----------------------------------------------------------------------------
+/design/                            @dux-dui-designer
+/design/figma/                      @dux-dui-designer
+/design/figma/tokens/               @dux-dui-designer @frontend-engineer
+/design/icons/                      @dux-dui-designer
+
+# -----------------------------------------------------------------------------
+# INFRAESTRUTURA — DevOps, CI/CD, IaC
+# Software House + Software Architect
+# -----------------------------------------------------------------------------
+/infra/                             @software-house @fsd-dantas
+/infra/ansible/                     @software-house
+/infra/docker/                      @software-house
+/infra/scripts/                     @software-house
+/.github/                           @software-house @fsd-dantas
+/.github/workflows/                 @software-house @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# TESTES — QA é owner principal
+# QA Engineer
+# -----------------------------------------------------------------------------
+/tests/                             @qa-engineer
+/tests/unit/                        @qa-engineer @fullstack-engineer
+/tests/integration/                 @qa-engineer @fullstack-engineer
+/tests/e2e/                         @qa-engineer @frontend-engineer
+/tests/performance/                 @qa-engineer @software-house
+/tests/architectural/               @qa-engineer @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# CONFIGURAÇÕES DE PROJETO
+# Requerem aprovação do Arquiteto
+# -----------------------------------------------------------------------------
+/*.json                             @fsd-dantas @fullstack-engineer
+/*.yml                              @fsd-dantas @software-house
+/*.yaml                             @fsd-dantas @software-house
+/Directory.Build.props              @fsd-dantas @fullstack-engineer
+/Directory.Packages.props           @fsd-dantas @fullstack-engineer
+/.editorconfig                      @fsd-dantas
+/.gitignore                         @fsd-dantas
+
+# -----------------------------------------------------------------------------
+# ARQUIVOS CRÍTICOS — Requerem múltiplas aprovações
+# -----------------------------------------------------------------------------
+/src/backend/3-Domain/Sigma.Domain.Shared/          @fsd-dantas @fullstack-engineer
+/src/backend/4-Infrastructure/Sigma.Infrastructure.Identity/    @fsd-dantas @fullstack-engineer @software-house
+/src/backend/4-Infrastructure/Sigma.Infrastructure.EventStore/  @fsd-dantas @fullstack-engineer
+
+# Security-sensitive files
+**/appsettings*.json                @fsd-dantas @software-house
+**/secrets*                         @fsd-dantas @software-house
+**/*.pfx                            @fsd-dantas @software-house
+**/*.pem                            @fsd-dantas @software-house
+
+# =============================================================================
+# MAPEAMENTO DE PAPÉIS → USUÁRIOS GITHUB
+# =============================================================================
+#
+# Substitua os placeholders abaixo pelos usernames reais do GitHub:
+#
+#   @fsd-dantas          → Software Architect (já definido)
+#   @fullstack-engineer  → Full Stack Engineer (Backend & Integration)
+#   @frontend-engineer   → Front End Engineer
+#   @dux-dui-designer    → DUX/DUI Designer
+#   @data-engineer       → Data Engineer
+#   @qa-engineer         → QA Engineer
+#   @software-house      → Software House (pode ser um team: @org/software-house)
+#
+# Para usar Teams do GitHub (recomendado para Software House):
+#   @fsd-dantas/backend-team
+#   @fsd-dantas/frontend-team
+#   @fsd-dantas/qa-team
+#
+# =============================================================================
