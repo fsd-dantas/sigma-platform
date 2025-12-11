@@ -23,18 +23,18 @@
 # PROPRIETÁRIOS GLOBAIS (fallback para arquivos não cobertos)
 # -----------------------------------------------------------------------------
 # Software Architect é owner padrão de todo o repositório
-*                                   @fsd-dantas
+*                                   @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # ARQUITETURA E DOCUMENTAÇÃO TÉCNICA
 # Software Architect
 # -----------------------------------------------------------------------------
-/docs/architecture/                 @fsd-dantas
-/docs/architecture/adrs/            @fsd-dantas
-/docs/architecture/c4/              @fsd-dantas
-/docs/architecture/diagrams/        @fsd-dantas
-/docs/api/                          @fsd-dantas
-*.md                                @fsd-dantas
+/docs/architecture/                 @fernando.sabino
+/docs/architecture/adrs/            @fernando.sabino
+/docs/architecture/c4/              @fernando.sabino
+/docs/architecture/diagrams/        @fernando.sabino
+/docs/api/                          @fernando.sabino
+*.md                                @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # BACKEND — Camadas Clean Architecture
@@ -43,15 +43,15 @@
 /src/backend/                       @fullstack-engineer
 /src/backend/1-Host/                @fullstack-engineer
 /src/backend/2-Application/         @fullstack-engineer
-/src/backend/3-Domain/              @fullstack-engineer @fsd-dantas
+/src/backend/3-Domain/              @fullstack-engineer @fernando.sabino
 /src/backend/4-Infrastructure/      @fullstack-engineer
 /src/backend/5-CrossCutting/        @fullstack-engineer
 
 # Domain Layer requer revisão do Arquiteto (regras de negócio críticas)
-/src/backend/3-Domain/              @fsd-dantas @fullstack-engineer
+/src/backend/3-Domain/              @fernando.sabino @fullstack-engineer
 
 # Integrações externas (SIAFIC, eProtocolo, GMS)
-/src/backend/4-Infrastructure/Sigma.Infrastructure.Integrations/    @fullstack-engineer @fsd-dantas
+/src/backend/4-Infrastructure/Sigma.Infrastructure.Integrations/    @fullstack-engineer @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # FRONTEND — Portais React
@@ -86,12 +86,12 @@
 # INFRAESTRUTURA — DevOps, CI/CD, IaC
 # Software House + Software Architect
 # -----------------------------------------------------------------------------
-/infra/                             @software-house @fsd-dantas
+/infra/                             @software-house @fernando.sabino
 /infra/ansible/                     @software-house
 /infra/docker/                      @software-house
 /infra/scripts/                     @software-house
-/.github/                           @software-house @fsd-dantas
-/.github/workflows/                 @software-house @fsd-dantas
+/.github/                           @software-house @fernando.sabino
+/.github/workflows/                 @software-house @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # TESTES — QA é owner principal
@@ -102,32 +102,32 @@
 /tests/integration/                 @qa-engineer @fullstack-engineer
 /tests/e2e/                         @qa-engineer @frontend-engineer
 /tests/performance/                 @qa-engineer @software-house
-/tests/architectural/               @qa-engineer @fsd-dantas
+/tests/architectural/               @qa-engineer @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # CONFIGURAÇÕES DE PROJETO
 # Requerem aprovação do Arquiteto
 # -----------------------------------------------------------------------------
-/*.json                             @fsd-dantas @fullstack-engineer
-/*.yml                              @fsd-dantas @software-house
-/*.yaml                             @fsd-dantas @software-house
-/Directory.Build.props              @fsd-dantas @fullstack-engineer
-/Directory.Packages.props           @fsd-dantas @fullstack-engineer
-/.editorconfig                      @fsd-dantas
-/.gitignore                         @fsd-dantas
+/*.json                             @fernando.sabino @fullstack-engineer
+/*.yml                              @fernando.sabino @software-house
+/*.yaml                             @fernando.sabino @software-house
+/Directory.Build.props              @fernando.sabino @fullstack-engineer
+/Directory.Packages.props           @fernando.sabino @fullstack-engineer
+/.editorconfig                      @fernando.sabino
+/.gitignore                         @fernando.sabino
 
 # -----------------------------------------------------------------------------
 # ARQUIVOS CRÍTICOS — Requerem múltiplas aprovações
 # -----------------------------------------------------------------------------
-/src/backend/3-Domain/Sigma.Domain.Shared/          @fsd-dantas @fullstack-engineer
-/src/backend/4-Infrastructure/Sigma.Infrastructure.Identity/    @fsd-dantas @fullstack-engineer @software-house
-/src/backend/4-Infrastructure/Sigma.Infrastructure.EventStore/  @fsd-dantas @fullstack-engineer
+/src/backend/3-Domain/Sigma.Domain.Shared/          @fernando.sabino @fullstack-engineer
+/src/backend/4-Infrastructure/Sigma.Infrastructure.Identity/    @fernando.sabino @fullstack-engineer @software-house
+/src/backend/4-Infrastructure/Sigma.Infrastructure.EventStore/  @fernando.sabino @fullstack-engineer
 
 # Security-sensitive files
-**/appsettings*.json                @fsd-dantas @software-house
-**/secrets*                         @fsd-dantas @software-house
-**/*.pfx                            @fsd-dantas @software-house
-**/*.pem                            @fsd-dantas @software-house
+**/appsettings*.json                @fernando.sabino @software-house
+**/secrets*                         @fernando.sabino @software-house
+**/*.pfx                            @fernando.sabino @software-house
+**/*.pem                            @fernando.sabino @software-house
 
 # =============================================================================
 # MAPEAMENTO DE PAPÉIS → USUÁRIOS GITHUB
@@ -135,7 +135,7 @@
 #
 # Substitua os placeholders abaixo pelos usernames reais do GitHub:
 #
-#   @fsd-dantas          → Software Architect (já definido)
+#   @fernando.sabino          → Software Architect (já definido)
 #   @fullstack-engineer  → Full Stack Engineer (Backend & Integration)
 #   @frontend-engineer   → Front End Engineer
 #   @dux-dui-designer    → DUX/DUI Designer
@@ -144,8 +144,8 @@
 #   @software-house      → Software House (pode ser um team: @org/software-house)
 #
 # Para usar Teams do GitHub (recomendado para Software House):
-#   @fsd-dantas/backend-team
-#   @fsd-dantas/frontend-team
-#   @fsd-dantas/qa-team
+#   @fernando.sabino/backend-team
+#   @fernando.sabino/frontend-team
+#   @fernando.sabino/qa-team
 #
 # =============================================================================
