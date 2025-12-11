@@ -26,6 +26,21 @@
 *                                   @fernando.sabino
 
 # -----------------------------------------------------------------------------
+# GOVERNANÇA DE PROJETO –ÁREA TÉCNICA
+# Project Manager + Software Architect
+# -----------------------------------------------------------------------------
+/README.md                          @project-manager @fernando.sabino
+/CONTRIBUTING.md                    @project-manager @fernando.sabino
+/CHANGELOG.md                       @project-manager @fernando.sabino
+/CODE_OF_CONDUCT.md                 @project-manager
+/SECURITY.md                        @project-manager @fernando.sabino @software-house
+
+# Documentação de gestão do projeto
+/docs/guides/                       @project-manager @fernando.sabino
+/docs/guides/onboarding/            @project-manager
+/docs/guides/processes/             @project-manager
+
+# -----------------------------------------------------------------------------
 # ARQUITETURA E DOCUMENTAÇÃO TÉCNICA
 # Software Architect
 # -----------------------------------------------------------------------------
@@ -34,6 +49,9 @@
 /docs/architecture/c4/              @fernando.sabino
 /docs/architecture/diagrams/        @fernando.sabino
 /docs/api/                          @fernando.sabino
+
+# Documentação Markdown técnica (exceto governança - definida acima)
+# A regra mais específica acima tem precedência
 *.md                                @fernando.sabino
 
 # -----------------------------------------------------------------------------
@@ -93,6 +111,9 @@
 /.github/                           @software-house @fernando.sabino
 /.github/workflows/                 @software-house @fernando.sabino
 
+# CODEOWNERS requer aprovação do PM e Arquiteto (governança)
+/.github/CODEOWNERS                 @project-manager @fernando.sabino
+
 # -----------------------------------------------------------------------------
 # TESTES — QA é owner principal
 # QA Engineer
@@ -135,17 +156,39 @@
 #
 # Substitua os placeholders abaixo pelos usernames reais do GitHub:
 #
-#   @fernando.sabino          → Software Architect (já definido)
+#   @fernando.sabino     → Software Architect (já definido)
+#   @project-manager     → Project Manager
 #   @fullstack-engineer  → Full Stack Engineer (Backend & Integration)
 #   @frontend-engineer   → Front End Engineer
 #   @dux-dui-designer    → DUX/DUI Designer
 #   @data-engineer       → Data Engineer
 #   @qa-engineer         → QA Engineer
-#   @software-house      → Software House (pode ser um team: @org/software-house)
+#   @software-house      → Software Atelier (equipe: @org/software-house)
 #
-# Para usar Teams do GitHub (recomendado para Software House):
+# Para usar Teams do GitHub (recomendado para Software Atelier):
 #   @fernando.sabino/backend-team
 #   @fernando.sabino/frontend-team
 #   @fernando.sabino/qa-team
+#
+# =============================================================================
+# MATRIZ RACI SIMPLIFICADA
+# =============================================================================
+#
+#   R = Responsible (executa)
+#   A = Accountable (aprova)
+#   C = Consulted (consultado)
+#   I = Informed (informado)
+#
+#   Área                    | PM | Arch | FullStack | FrontEnd | DUX | Data | QA | DevOps
+#   ------------------------|----+------+-----------+----------+-----+------+----+-------
+#   Governança/README       | A  |  C   |     I     |    I     |  I  |  I   | I  |   I
+#   Arquitetura/ADRs        | I  |  A   |     C     |    C     |  I  |  C   | I  |   C
+#   Backend/Domain          | I  |  A   |     R     |    I     |  I  |  I   | C  |   I
+#   Backend/Infra           | I  |  C   |     R     |    I     |  I  |  C   | C  |   C
+#   Frontend/Portais        | I  |  C   |     I     |    R     |  A  |  I   | C  |   I
+#   Design/Assets           | I  |  I   |     I     |    C     |  R  |  I   | I  |   I
+#   Testes                  | I  |  C   |     C     |    C     |  I  |  I   | A  |   C
+#   Infraestrutura/CI-CD    | I  |  A   |     C     |    I     |  I  |  I   | C  |   R
+#   Migrations/BI           | I  |  C   |     C     |    C     |  I  |  R   | C  |   I
 #
 # =============================================================================
