@@ -1,9 +1,6 @@
 pipeline {
   agent {
-    docker {
-      image 'localhost/sles-jenkins-agent:15sp7'
-      args '--network devops-net'
-    }
+any
   }
 
   environment {
